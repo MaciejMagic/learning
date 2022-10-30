@@ -4,7 +4,8 @@
    
 ---
    
-- [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science)
+- [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science):
+
    - [x] week 0 - Scratch
    - [x] week 1 - C
    - [x] week 2 - Arrays
@@ -19,7 +20,8 @@
 
 ---
 
-- [ ] [free_code_camp](https://www.freecodecamp.org/learn)
+- [ ] [free_code_camp](https://www.freecodecamp.org/learn) certifications course:
+
    - [ ] Responsive Web Design Certification  **<--**
    - [ ] Legacy Web Design Certification
    - [ ] JavaScript Algorithms and Data Structures Certification
