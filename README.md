@@ -1,21 +1,8 @@
 # learning_online
 🗄 My learning path - materials and tasks from online courses:
 
+   
 ---
-
-
-- [ ] [free_code_camp](https://www.freecodecamp.org/learn)
-   - [ ] Responsive Web Design Certification <--
-   - [ ] Legacy Web Design Certification
-   - [ ] JavaScript Algorithms and Data Structures Certification
-   - [ ] Front End Developement Libraries Certification
-   - [ ] Data Visualization Certification
-   - [ ] Relational Database Certification
-   - [ ] Back End Developement and APIs Certification
-   - [ ] Quality Assurance Certification
-   
-   ---
-   
    
 - [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science)
    - [x] week 0 - Scratch
@@ -26,6 +13,18 @@
    - [x] week 5 - Data Structures
    - [x] week 6 - Python
    - [x] week 7 - SQL
-   - [ ] week 8 - Html, CSS, JavaScript <--
+   - [ ] week 8 - Html, CSS, JavaScript  **<--**
    - [ ] week 9 - Flask
    - [ ] week 10 - Emoji
+
+---
+
+- [ ] [free_code_camp](https://www.freecodecamp.org/learn)
+   - [ ] Responsive Web Design Certification  **<--**
+   - [ ] Legacy Web Design Certification
+   - [ ] JavaScript Algorithms and Data Structures Certification
+   - [ ] Front End Developement Libraries Certification
+   - [ ] Data Visualization Certification
+   - [ ] Relational Database Certification
+   - [ ] Back End Developement and APIs Certification
+   - [ ] Quality Assurance Certification
