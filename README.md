@@ -10,5 +10,12 @@
    ---
    
    
-- [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (CS50's Introduction to Computer Science)
-   - *currently at week 7 - SQL*
+- [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science)
+   - [x] currently at week 1 - SQL
+   - [x] currently at week 2 - SQL
+   - [x] currently at week 3 - SQL
+   - [x] currently at week 4 - SQL
+   - [x] currently at week 5 - SQL
+   - [x] currently at week 6 - SQL
+   - [x] currently at week 7 - SQL
+   - [ ] currently at week 8 - SQL
