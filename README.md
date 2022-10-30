@@ -5,7 +5,14 @@
 
 
 - [ ] [free_code_camp](https://www.freecodecamp.org/learn)
-   - *currently at final task (5) from the Responsive Web Design course: Survey Form*
+   - [ ] Responsive Web Design Certification <--
+   - [ ] Legacy Web Design Certification
+   - [ ] JavaScript Algorithms and Data Structures Certification
+   - [ ] Front End Developement Libraries Certification
+   - [ ] Data Visualization Certification
+   - [ ] Relational Database Certification
+   - [ ] Back End Developement and APIs Certification
+   - [ ] Quality Assurance Certification
    
    ---
    
@@ -19,4 +26,6 @@
    - [x] week 5 - Data Structures
    - [x] week 6 - Python
    - [x] week 7 - SQL
-   - [ ] week 8 - Html, CSS, JavaScript
+   - [ ] week 8 - Html, CSS, JavaScript <--
+   - [ ] week 9 - Flask
+   - [ ] week 10 - Emoji
