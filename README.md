@@ -28,3 +28,7 @@
    - [ ] Relational Database Certification
    - [ ] Back End Developement and APIs Certification
    - [ ] Quality Assurance Certification
+   - [ ] Scientific Computing with Python Certification
+   - [ ] Data Analysis Certification
+   - [ ] Information Security Certification
+   - [ ] Machine Learning with Python Certification
