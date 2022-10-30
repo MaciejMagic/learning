@@ -1,5 +1,5 @@
-# learning_online
-🗄 My learning path - materials and tasks from online courses:
+# Learning Online
+🗄  My learning path - materials and tasks from online courses:
 
    
 ---
