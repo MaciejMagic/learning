@@ -1,4 +1,4 @@
-# CS50x - week 06 "Python" - problem set 6
+# CS50x - week 06 "Python"
 My implementations of tasks from the problem set in Python:
 * Lab 6: [World Cup](https://cs50.harvard.edu/x/2022/labs/6/),
 * Problem Set 6 - Task 2A: [Sentimental_Mario-less](https://cs50.harvard.edu/x/2022/psets/6/mario/less/),
