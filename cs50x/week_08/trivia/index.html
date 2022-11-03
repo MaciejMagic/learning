@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            document.addEventListener("DOMContentLoaded", function() {
+                let correct = document.querySelector(".correct");
+                correct.addEventListener("click", function() {
+                    correct.style.backgroundColor = "green";
+                    document.querySelector("#button_answer").innerHTML = "Correct!";
+                });
+
+                let incorrects = document.querySelectorAll(".incorrect");
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener("click", function() {
+                        incorrects[i].style.backgroundColor = "red";
+                        document.querySelector("#button_answer").innerHTML = "Incorrect";
+                    });
+                }
+
+                document.querySelector("#check").addEventListener("click", function() {
+                    let input = document.querySelector("input");
+                    if (input.value === "disney") {
+                        input.style.backgroundColor = "green";
+                        document.querySelector("#free_response").innerHTML = "Correct!";
+                    } else {
+                        input.style.backgroundColor = "red";
+                        document.querySelector("#free_response").innerHTML = "Incorrect";
+                    }
+                })
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What's the color of the heaviest weight plate in Olympic weightlifting ?</h3>
+                <button class="incorrect">White</button>
+                <button class="incorrect">Blue</button>
+                <button class="correct">Red</button>
+                <button class="incorrect">Green</button>
+                <button class="incorrect">Yellow</button>
+                <p id="button_answer"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>What's the name of the most famous animated movie production company ?</h3>
+                <input type="text">
+                <button id="check" type="submit">Check Answer</button>
+                <p id="free_response"></p>
+            </div>
+        </div>
+    </body>
+</html>
