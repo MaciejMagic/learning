@@ -1,0 +1,14 @@
+header {
+  text-align: center;
+}
+
+body {
+  background-color: #e8f4f8;
+  font-family: Helvetica;
+}
+
+form {
+  background-color: #d4ebf2;
+  padding: 2em;
+  border-radius: 10px;
+}
