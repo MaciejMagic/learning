@@ -1,14 +1,96 @@
 header {
   text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  padding-top: 30px;
+  font-weight: 50;
 }
 
 body {
-  background-color: #e8f4f8;
-  font-family: Helvetica;
+  background-color: #7749d5;
+  font-family: Arial;
+}
+
+#description {
+  font-style: italic;
+  font-weight: 50;
+  padding-bottom: 20px;
 }
 
 form {
-  background-color: #d4ebf2;
-  padding: 2em;
+  background-color: #866baf;
+  padding: 1.5em;
   border-radius: 10px;
+  max-width: 500;
+  align: center;
+  margin: auto;
+}
+
+label {
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+}
+
+form p {
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  font-size: 20px;
+}
+
+input[type=text], input[type=email], input[type=number], select, textarea {
+  width: 100%;
+  padding: 12;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+select {
+  height: 52px;
+  font-family: inherit;
+  color: gray;
+}
+
+.radio {
+  display: block;
+  padding: 3px;
+}
+
+.checkbox {
+  display: block;
+  padding: 3px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline-block;
+  margin-right: 0.625rem;
+  min-height: 1.25rem;
+  min-width: 1.25rem;
+  transform: scale(1.2);
+}
+
+textarea {
+  min-height: 120;
+  resize: vertical;
+}
+
+#submit {
+  width: 100%;
+  padding: 15;
+  color: white;
+  background-color: #d5b6ff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  display: block;
+  font-size: 20px;
+  cursor: pointer;
 }
