@@ -1,3 +1,58 @@
 body {
   font-family: Arial;
+  text-align: center;
+}
+
+#backg {
+  background: #9fb7cd;
+  border-radius: 10px;
+}
+
+#title {
+  padding: 40 0 0 0;
+}
+
+#image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 5 -15 5 15;
+  margin: auto;
+  border-radius: 3%;
+}
+
+#img-div {
+  padding: 35 5 15 5;
+  margin: 10;
+  border-radius: 10px;
+  background: #cfdbe6;
+}
+
+#img-caption {
+  max-width: 75%;
+  margin: auto;
+}
+
+h3 {
+  padding: 20 0 20 0;
+  margin: auto;
+}
+
+ul {
+  max-width: 85%;
+  margin: auto;
+}
+
+li {
+  padding: 0 30 20 0;
+  text-align: left;
+}
+
+#citaton {
+  padding: 0 50 0 50;
+  margin: auto;
+}
+
+#tribute-link {
+  text-decoration: none;
 }
