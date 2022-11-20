@@ -2,58 +2,67 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Piano</title>
+    <title>Documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <nav id="navbar">
-      <header>Sample Language Documentation</header>
+      <header>Sample Technical Documentation</header>
       <ul>
-        <li><a class="nav-link" href="#Topic_1">Topic 1</a></li>
-        <li><a class="nav-link" href="#Topic_2">Topic 2</a></li>
-        <li><a class="nav-link" href="#Topic_3">Topic 3</a></li>
-        <li><a class="nav-link" href="#Topic_4">Topic 4</a></li>
-        <li><a class="nav-link" href="#Topic_5">Topic 5</a></li>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#Variables">Variables</a></li>
+        <li><a class="nav-link" href="#Functions">Functions</a></li>
+        <li><a class="nav-link" href="#Statements">Statements</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
       </ul>
     </nav>
     <main id="main-doc">
-      <section class="main-section" id="Topic_1">
-        <header>Topic 1</header>
-        <p>a</p>
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>Python is a great introductory programming language and can be used for wide array of scenarios, like:</p>
         <ul>
           <li>General Scripting</li>
-          <li>Website - database interactions</li>
-          <li>Backend of Web apps</li>
+          <li>Website - database integration</li>
+          <li>Backend of Webapps</li>
           <li>Artificial Intelligence</li>
           <li>Machine Learning</li>
         </ul>
-        <code></code>
-        <p>b</p>
+        <p>Main programming is defining functions. Here's a very short and simple one:</p>
+        <code>print("Hello, world!")</code>
+        <p>One can define variables like in any other language.</p>
       </section>
-      <section class="main-section" id="Topic_2">
-        <header>Topic 2</header>
-        <p>c</p>
-        <code></code>
-        <p>d</p>
+      <section class="main-section" id="Variables">
+        <header>Variables</header>
+        <p>Unlike in C, you can define a variable with just its name, like so:</p>
+        <code>x = 12</code>
+        <p>You do not have to define a data type, but it's sometimes better to force it. You can do so by encasing the definition in a function, like so:</p>
+        <code>x = int(12)</code>
       </section>
-      <section class="main-section" id="Topic_3">
-        <header>Topic 3</header>
-        <p>e</p>
-        <code></code>
-        <p>f</p>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <p>Functions in Python do not use curly braces. Indentation is used instead.</p>
+        <code>def addition(x, y):
+  return x + y</code>
+        <p>Above is a function that takes two arguments and adds them together with a simple math equation and then returns the value.</p>
       </section>
-      <section class="main-section" id="Topic_4">
-        <header>Topic 4</header>
-        <p>g</p>
-        <code></code>
-        <p>h</p>
+      <section class="main-section" id="Statements">
+        <header>Statements</header>
+        <p>One can write many different compound statements in Python to create logic for programs. Statements known from other languagese, like:</p>
+        <ul>
+          <li>if</li>
+          <li>for</li>
+          <li>while</li>
+          <li>try</li>
+          <li>with</li>
+        </ul>
+        <p>For example:</p>
+        <code>for i in range(5):
+  print(i)</code>
       </section>
-      <section class="main-section" id="Topic_5">
-        <header>Topic 5</header>
-        <p>i</p>
-        <code></code>
-        <p>j</p>
+      <section class="main-section" id="Reference">
+        <header>Reference</header>
+        <p>You can learn all about this language from its offical comprehensive documentation <a href="https://docs.python.org/3/reference/index.html">here.</a></p>
       </section>
     </main>
   </body>
