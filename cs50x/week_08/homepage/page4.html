@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Homepage Exercise</title>
+    </head>
+    <body>
+      <header>
+        <h1>Welcome to my stylish catpage</h1>
+        <img src="cat01.png" alt="Cute Cat" height="150px" class="logo_cat">
+        <p class="subtitle">Cats since 2022</p>
+      </header>
+      <main>
+        <hr>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html"> Home </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="page2.html"> Breeds </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="page3.html"> Diet </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"> >Form </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <hr>
+        <p>Form Submission</p>
+        <form method="post" action="https://samplesite.orgcom">
+          <section role="region" aria-labelledby="f-info">
+            <h2 id="f-info">Some basic info</h2>
+            <div class="info">
+              <label for="f-name">Name:</label>
+              <input type="text" name="f-name" id="f-name" />
+            </div>
+            <div class="info">
+              <label for="f-email">Email:</label>
+              <input type="email" name="f-email" id="f-email" />
+            </div>
+            <div class="info">
+              <label for="birth-date">D.O.B.<span class="sr-only">(Date of Birth)</span></label>
+              <input type="date" name="birth-date" id="birth-date" />
+            </div>
+          </section>
+          <section role="region" aria-labelledby="questions1">
+            <h2 id="questions1">Some cat questions</h2>
+            <div class="question-block">
+              <fieldset class="question" name="question-one">
+                <legend>
+                  Is it true that cats are smarter than dogs ?
+                </legend>
+                <ul class="answers-list">
+                  <li>
+                    <label for="q1-a1">
+                      <input type="radio" id="q1-a1" name="q1" value="true" />
+                      True
+                    </label>
+                  </li>
+                  <li>
+                    <label for="q1-a2">
+                      <input type="radio" id="q1-a2" name="q1" value="false" />
+                      False
+                    </label>
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+            <div class="question-block">
+              <fieldset class="question" name="question-two">
+                <legend>
+                  Are cats vegetarian ?
+                </legend>
+                <ul class="answers-list">
+                  <li>
+                    <label for="q2-a1">
+                      <input type="radio" id="q2-a1" name="q2" value="true" />
+                      True
+                    </label>
+                  </li>
+                  <li>
+                    <label for="q2-a2">
+                      <input type="radio" id="q2-a2" name="q2" value="false" />
+                      False
+                    </label>
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+          </section>
+          <section role="region" aria-labelledby="questions2">
+            <h2 id="questions2">Fandom and open question</h2>
+            <div class="formrow">
+              <div class="question-block">
+                <label for="fan">Are you a cat fan yet?</label>
+              </div>
+              <div class="answer">
+                <select name="fan" id="fan" required>
+                  <option value="">Select an option</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div class="question-block">
+                <label for="questions2">Do you have any questions:</label>
+              </div>
+              <div class="answer">
+                <textarea id="questions2" name="questions2" rows="5" cols="50" placeholder="Cats everywhere..."></textarea>
+              </div>
+              <div class="submit_button">
+                <label for="cat_select">Which cats do you adore the most?
+                  <select id="cat_select" name="cat_select">
+                      <option value="">(Select one)</option>
+                      <option value="1">English Cats</option>
+                      <option value="2">Egyptian Cats</option>
+                      <option value="3">Bengal Cats</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </section>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </main>
+      <hr>
+      <footer>
+          <p>
+              <a href="https://cs50.harvard.edu/x/2022/psets/8/homepage/" class="subtitle"><b>Link to a site</b></a>
+          </p>
+          <p class="subtitle">A nice bottom text under the mysterious link</p>
+      </footer>
+    </body>
+</html>
