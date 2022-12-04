@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script>
+            // load the entire document first, then execute the bouncing function
+            document.addEventListener("DOMContentLoaded", function() {
+                // variables holding the item to move
+                let parent = document.getElementById("container");
+                let mover = document.getElementById("mover");
+                let direction = 1;
+                // distance traveled by the moving cat in pixels
+                let distance = 8;
+                let moving = setInterval(function() {
+                    let positionX = parseInt(mover.style.left.replace(/px$/, '')) || 0;
+                    // move step:
+                    positionX += direction * distance;
+                    if (direction == 1 && positionX + mover.offsetWidth > parent.offsetWidth)
+                        {
+                            positionX -= positionX + mover.offsetWidth - parent.offsetWidth;
+                            direction *= -1;
+                        }
+                    // change direction if on the edge of the screen
+                    else if (direction == -1 && positionX < 0)
+                        {
+                            positionX = 0;
+                            direction *= -1;
+                        }
+                    mover.style.left = positionX + "px";
+                    // second parameter of the setIntreval function is speed of the moving animation in miliseconds
+                    }, 20);
+                });
+        </script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Homepage Exercise</title>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to my stylish catpage</h1>
+            <div id="container">
+                <img src="cat01.png" alt="Cute Cat" class="logo_cat" id="mover">
+            </div>
+            <p class="subtitle">Cats since 2022</p>
+        </header>
+        <main>
+            <hr>
+            <nav class="navbar navbar-expand-lg">
+              <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"> >Home </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="page2.html"> Breeds </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="page3.html"> Diet </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="page4.html"> Form </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+            <hr>
+            <section>
+                <h2>Why cats?</h2>
+                <p class="sub1">"Why make a page about <b>cats</b>?"</p>
+                <img src="https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg" alt="cat photo 1" width="200">
+                <q>Why not.</q> - <i>Ernest Hemingway</i>
+            </section>
+            <div></div>
+            <div class="container px-4 py-5" id="featured-3">
+                <h2 class="pb-2 border-bottom">Select which topic about cats intrests you the most:</h2>
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                  <div class="feature col">
+                    <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
+                    </div>
+                    <h3 class="fs-2">Cat Breeds</h3>
+                    <p>There are many different breeds of cats. They differ in personality, size, fur color, boody type and place of origin.</p>
+                    <a href="page2.html" class="icon-link d-inline-flex align-items-center">
+                      Discover some of them
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                    </a>
+                  </div>
+                  <div class="feature col">
+                    <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+                    </div>
+                    <h3 class="fs-2">Diet</h3>
+                    <p>Learn a dietary tip that will help you keep your cat friend healthy.</p>
+                    <a href="page3.html" class="icon-link d-inline-flex align-items-center">
+                      Let's See
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                    </a>
+                  </div>
+                  <div class="feature col">
+                    <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+                    </div>
+                    <h3 class="fs-2">Form</h3>
+                    <p>Please consider completing our form for analytical purposes. For science.</p>
+                    <a href="page4.html" class="icon-link d-inline-flex align-items-center">
+                      Continue
+                      <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+        </main>
+        <hr>
+        <footer>
+            <p>
+                <a href="https://cs50.harvard.edu/x/2022/psets/8/homepage/" class="subtitle"><b>Link to a site</b></a>
+            </p>
+            <p class="subtitle">A nice bottom text under the mysterious link</p>
+        </footer>
+    </body>
+</html>
