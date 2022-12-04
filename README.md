@@ -22,14 +22,14 @@
 
 - [ ] [free_code_camp](https://www.freecodecamp.org/learn) certifications course:
 
-   - [ ] Responsive Web Design Certification < 💻
-   - [ ] JavaScript Algorithms and Data Structures Certification
-   - [ ] Front End Developement Libraries Certification
-   - [ ] Data Visualization Certification
-   - [ ] Relational Database Certification
-   - [ ] Back End Developement and APIs Certification
-   - [ ] Quality Assurance Certification
-   - [ ] Scientific Computing with Python Certification
-   - [ ] Data Analysis Certification
-   - [ ] Information Security Certification
-   - [ ] Machine Learning with Python Certification
+   - [ ] (01) Responsive Web Design Certification < 💻
+   - [ ] (02) JavaScript Algorithms and Data Structures Certification
+   - [ ] (03) Front End Developement Libraries Certification
+   - [ ] (04) Data Visualization Certification
+   - [ ] (05) Relational Database Certification
+   - [ ] (06) Back End Developement and APIs Certification
+   - [ ] (07) Quality Assurance Certification
+   - [ ] (08) Scientific Computing with Python Certification
+   - [ ] (09) Data Analysis Certification
+   - [ ] (10) Information Security Certification
+   - [ ] (11) Machine Learning with Python Certification
