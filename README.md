@@ -20,16 +20,16 @@
 
 ---
 
-- [ ] [free_code_camp](https://www.freecodecamp.org/learn) certifications course:
+- [ ] [free_code_camp](https://www.freecodecamp.org/learn)'s path of online certifications:
 
-   - [ ] (01) Responsive Web Design Certification < 💻
-   - [ ] (02) JavaScript Algorithms and Data Structures Certification
-   - [ ] (03) Front End Developement Libraries Certification
-   - [ ] (04) Data Visualization Certification
-   - [ ] (05) Relational Database Certification
-   - [ ] (06) Back End Developement and APIs Certification
-   - [ ] (07) Quality Assurance Certification
-   - [ ] (08) Scientific Computing with Python Certification
-   - [ ] (09) Data Analysis Certification
-   - [ ] (10) Information Security Certification
-   - [ ] (11) Machine Learning with Python Certification
+   - [ ] <sup>(01)</sup> Responsive Web Design Certification < 💻
+   - [ ] <sup>(02)</sup> JavaScript Algorithms and Data Structures Certification
+   - [ ] <sup>(03)</sup> Front End Developement Libraries Certification
+   - [ ] <sup>(04)</sup> Data Visualization Certification
+   - [ ] <sup>(05)</sup> Relational Database Certification
+   - [ ] <sup>(06)</sup> Back End Developement and APIs Certification
+   - [ ] <sup>(07)</sup> Quality Assurance Certification
+   - [ ] <sup>(08)</sup> Scientific Computing with Python Certification
+   - [ ] <sup>(09)</sup> Data Analysis Certification
+   - [ ] <sup>(10)</sup> Information Security Certification
+   - [ ] <sup>(11)</sup> Machine Learning with Python Certification
