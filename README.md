@@ -18,6 +18,7 @@
    - [ ] week 9 - Flask < 💻
    - [ ] week 10 - Emoji
 </details>
+   
 ---
 
 <details><summary>FCC</summary>
