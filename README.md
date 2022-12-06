@@ -4,6 +4,7 @@
    
 ---
 <details><summary>CS50X</summary>
+   
 - [ ] [CS50X](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science):
 
    - [x] week 0 - Scratch
@@ -22,6 +23,7 @@
 ---
 
 <details><summary>FCC</summary>
+   
 - [ ] [free_code_camp](https://www.freecodecamp.org/learn)'s path of online certifications:
 
    - [ ] <sup>(01)</sup> Responsive Web Design Certification < 💻
