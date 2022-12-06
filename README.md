@@ -3,8 +3,8 @@
 
    
 ---
-   
-- [ ] [CS50x](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science):
+<details><summary>CS50X</summary>
+- [ ] [CS50X](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science):
 
    - [x] week 0 - Scratch
    - [x] week 1 - C
@@ -17,9 +17,10 @@
    - [x] week 8 - Html, CSS, JavaScript
    - [ ] week 9 - Flask < 💻
    - [ ] week 10 - Emoji
-
+</details>
 ---
 
+<details><summary>FCC</summary>
 - [ ] [free_code_camp](https://www.freecodecamp.org/learn)'s path of online certifications:
 
    - [ ] <sup>(01)</sup> Responsive Web Design Certification < 💻
@@ -33,3 +34,4 @@
    - [ ] <sup>(09)</sup> Data Analysis Certification
    - [ ] <sup>(10)</sup> Information Security Certification
    - [ ] <sup>(11)</sup> Machine Learning with Python Certification
+</details>
