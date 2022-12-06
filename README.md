@@ -14,8 +14,8 @@
    - [x] week 5 - Data Structures
    - [x] week 6 - Python
    - [x] week 7 - SQL
-   - [ ] week 8 - Html, CSS, JavaScript < 💻
-   - [ ] week 9 - Flask
+   - [x] week 8 - Html, CSS, JavaScript
+   - [ ] week 9 - Flask < 💻
    - [ ] week 10 - Emoji
 
 ---
