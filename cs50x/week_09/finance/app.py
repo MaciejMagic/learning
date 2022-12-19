@@ -45,25 +45,25 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
-    # initialize list of user current stocks (dicts)
+    # Initialize list of user current stocks (dicts)
     currentStocks = []
 
-    # extract total of user shares for each stock from db (list of dicts)
-    portfolio = db.execute("SELECT symbol, SUM(share) FROM shares WHERE user_id = ? GROUP BY symbol", session["user_id"])
+    # Extract total of user shares for each stock from db (list of dicts)
+    portfolio = db.execute("SELECT symbol, SUM(share) FROM shares WHERE user_id = ? GROUP BY symbol ORDER BY share DESC", session["user_id"])
 
-    # populate the currentStocks list with user stocks (with latest prices)
-    for stock in range(len(portfolio)):
+    # Populate the currentStocks list with user stocks (with latest prices)
+    for stock in portfolio:
 
-        # for each company (stock) lookup() creates a dict with keys: "name", "price", "symbol"
+        # For each company (stock) lookup() creates a dict with keys: "name", "price", "symbol"
         currentStocks.append(lookup(portfolio[stock]["symbol"]))
 
-        # adding "shares" key to those dicts
+        # Adding "shares" key to those dicts
         currentStocks[stock]["shares"] = portfolio[stock]["share"]
 
-        # fetch current user cash
-        cash = db.execute("SELECT cash FROM users WHERE user_id = ?", session["user_id"])
+        # Fetch current user cash
+        cash = db.execute("SELECT username, cash FROM users WHERE user_id = ?", session["user_id"])
 
-    return render_template("index.html", currentStocks, cash)
+    return render_template("index.html", currentStocks, cash=cash[0]["cash"])
 
 
 @app.route("/buy", methods=["GET", "POST"])
