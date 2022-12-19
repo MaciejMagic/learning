@@ -60,10 +60,19 @@ def index():
         # Adding "shares" key to those dicts
         currentStocks[stock]["shares"] = portfolio[stock]["share"]
 
-        # Fetch current user cash
-        cash = db.execute("SELECT username, cash FROM users WHERE user_id = ?", session["user_id"])
+    # Fetch current user cash
+    userCash = db.execute("SELECT username, cash FROM users WHERE user_id = ?", session["user_id"])
+    cash = userCash[0]["cash"]
 
-    return render_template("index.html", currentStocks, cash=cash[0]["cash"])
+    # Calculate sum of user account cash and all shares worth
+    sharesWorth = 0
+
+    for i in currentStocks:
+        sharesWorth += float(currentStocks[i]["price"]) * int(currentStocks[i]["shares"])
+
+    userTotal = cash + sharesWorth
+
+    return render_template("index.html", currentStocks, cash, userTotal)
 
 
 @app.route("/buy", methods=["GET", "POST"])
