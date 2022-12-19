@@ -1,5 +1,5 @@
 # Learning Online
-🗄  My learning path - materials and tasks from online courses:
+🗄  My learning materials and tasks from online courses:
 
    
 ---
