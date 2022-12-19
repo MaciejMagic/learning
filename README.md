@@ -17,7 +17,7 @@
    - [x] week 7 - SQL
    - [x] week 8 - Html, CSS, JavaScript
    - [ ] week 9 - Flask < 💻
-   - [ ] week 10 - Emoji
+   - [ ] week 10 - Emoji and Final Project
 </details>
    
 ---
