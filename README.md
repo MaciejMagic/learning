@@ -7,17 +7,17 @@
    
 - [ ] [CS50X](https://cs50.harvard.edu/x/2022/) (Harvard's CS50: Introduction to Computer Science):
 
-   - [x] week 0 - Scratch
-   - [x] week 1 - C
-   - [x] week 2 - Arrays
-   - [x] week 3 - Algorithms
-   - [x] week 4 - Memory
-   - [x] week 5 - Data Structures
-   - [x] week 6 - Python
-   - [x] week 7 - SQL
-   - [x] week 8 - Html, CSS, JavaScript
-   - [ ] week 9 - Flask < 💻
-   - [ ] week 10 - Emoji and Final Project
+   - [x] week 00 - Scratch
+   - [x] week 01 - C
+   - [x] week 02 - Arrays
+   - [x] week 03 - Algorithms
+   - [x] week 04 - Memory
+   - [x] week 05 - Data Structures
+   - [x] week 06 - Python
+   - [x] week 07 - SQL
+   - [x] week 08 - Html, CSS, JavaScript
+   - [ ] week 09 - Flask < 💻
+   - [ ] week 10 - Final Project
 </details>
    
 ---
