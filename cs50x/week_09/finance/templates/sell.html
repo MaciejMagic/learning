@@ -1,10 +1,10 @@
-{% extends layout.html %}
+{% extends "layout.html" %}
 
-{{ block title }}
+{% block title %}
     Sell
-{{ endblock }}
+{% endblock %}
 
-{{ block body }}
+{% block main %}
     <form action="/sell" method="post">
         <div class="mb-3">
             <select class="form-select mx-auto w-auto" name="symbol">
@@ -15,8 +15,8 @@
             </select>
         </div>
         <div class="mb-3">
-            <input autocomplete="off" class="form-control mx-auto w-auto" id="shares" name="shares" type="number" placeholder="Shares" >
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="shares" type="number" placeholder="Shares" min="0">
         </div>
         <button class="btn btn-primary" type="submit">Sell</button>
     </form>
-{{ endblock }}
+{% endblock %}
