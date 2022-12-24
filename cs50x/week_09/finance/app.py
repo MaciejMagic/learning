@@ -45,93 +45,97 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
 
+    # Extract total of user shares for each stock from db (list of dicts)
+    try:
+        portfolio = db.execute(
+            "SELECT symbol, SUM(share) AS shares FROM shares WHERE user_id = ? GROUP BY symbol ORDER BY share DESC", session["user_id"])
+    except:
+        portfolio = []
+
     # Initialize list of user current stocks (dicts)
     currentStocks = []
 
-    # Extract total of user shares for each stock from db (list of dicts)
-    portfolio = db.execute("SELECT symbol, SUM(share) FROM shares WHERE user_id = ? GROUP BY symbol ORDER BY share DESC", session["user_id"])
-
     # Populate the currentStocks list with user stocks (with latest prices)
-    for stock in portfolio:
+    for stock in range(len(portfolio)):
 
         # For each company (stock) lookup() creates a dict with keys: "name", "price", "symbol"
         currentStocks.append(lookup(portfolio[stock]["symbol"]))
 
         # Adding "shares" key to those dicts
-        currentStocks[stock]["shares"] = portfolio[stock]["share"]
+        currentStocks[stock]["shares"] = portfolio[stock]["shares"]
 
     # Fetch current user cash
-    userCash = db.execute("SELECT username, cash FROM users WHERE user_id = ?", session["user_id"])
+    userCash = db.execute("SELECT username, cash FROM users WHERE id = ?", session["user_id"])
     cash = userCash[0]["cash"]
 
     # Calculate sum of user account cash and all shares worth
     sharesWorth = 0
 
-    for i in currentStocks:
-        sharesWorth += float(currentStocks[i]["price"]) * int(currentStocks[i]["shares"])
+    for stockNew in range(len(currentStocks)):
+        sharesWorth += float(currentStocks[stockNew]["price"]) * int(currentStocks[stockNew]["shares"])
 
     userTotal = cash + sharesWorth
 
-    return render_template("index.html", currentStocks, cash, userTotal)
+    return render_template("index.html", currentStocks=currentStocks, cash=cash, userTotal=userTotal)
 
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
+
     if request.method == "POST":
+
         # Require that a user input a stocks symbol, implemented as a text field whose name is symbol
         buySymbol = request.form.get("symbol")
         buyStock = lookup(buySymbol)
 
         # Render an apology if the input is blank or the symbol does not exist
-        if not buySymbol or not buyStock:
-            return apology("must provide a valid stock symbol", 403)
+        if not buySymbol:
+            return apology("must provide a stock symbol")
+
+        if buyStock == None:
+            return apology("symbol provided is not a valid stock")
 
         # Require that a user input a number of shares, implemented as a field whose name is shares
-        nrOfShares = int(request.form.get("shares"))
+        nrOfShares = request.form.get("shares")
+
+        if not nrOfShares.isnumeric():
+            return apology("must provide a non-partial, positive number")
+
+        if not nrOfShares.isdigit():
+            return apology("must provide a non-partial, positive number")
 
         # Render an apology if the input is not a positive integer
-        if nrOfShares < 0:
-            return apology("must provide a positive number", 403)
+        if int(nrOfShares) < 1:
+            return apology("must provide a positive number")
 
-        stockPrice = buyStock["price"]
+        # Fetch user info from database
         user = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         userCash = user[0]["cash"]
-        sharesToBuyTotal = nrOfShares * stockPrice
+
+        # Calculate amount of funds needed
+        stockPrice = buyStock["price"]
+        sharesToBuyTotal = int(nrOfShares) * stockPrice
 
         # Render an apology, without completing a purchase, if the user cannot afford the number of shares at the current price
-        if sharesToBuyTotal < userCash:
-            return apology("you do not have funds for this purchase", 403)
+        if sharesToBuyTotal > userCash:
+            return apology("you do not have funds for this purchase")
 
         # Substract cash spent from user account
-        db.execute("UPDATE users SET cash = ? WHERE user_id = ?", userCash - sharesToBuyTotal, session["user_id"])
+        userCashNew = userCash - sharesToBuyTotal
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", userCashNew, session["user_id"])
 
-        # Add one or more new tables to finance.db via which to keep track of the purchase
-        updateSharesTable = db.execute("""INSERT INTO shares
-                                       (user_id, symbol, share, price, time)
-                                       VALUES (?, ?, ?, ?, ?)""", session["user_id"], buySymbol, nrOfShares, stockPrice, datetime.datetime.now())
+        # Update shares table with new purchase
+        timestamp = datetime.datetime.now()
+        db.execute("""INSERT INTO shares
+                      (user_id, symbol, share, price, time)
+                      VALUES (?, ?, ?, ?, ?)""", session["user_id"], buySymbol, nrOfShares, stockPrice, timestamp)
 
-        if not updateSharesTable:
-            # Define UNIQUE indexes on any fields that should be unique / TO DO
-            # Define (non-UNIQUE) indexes on any fields via which you will search (as via SELECT with WHERE) / TO DO
-            db.execute("""
-                CREATE TABLE shares (
-                    id INTEGER NOT NULL,
-                    user_id INTEGER NOT NULL,
-                    symbol TEXT NOT NULL,
-                    share INTEGER NOT NULL,
-                    price REAL NOT NULL,
-                    time TIMESTAMP NOT NULL,
-                    PRIMARY KEY(id),
-                    FOREIGN KEY(user_id) REFERENCES users(id)
-                    )""")
-            db.execute("""INSERT INTO shares
-                       (user_id, symbol, share, price, time)
-                       VALUES (?, ?, ?, ?, ?)""", session["user_id"], buySymbol, nrOfShares, stockPrice, datetime.datetime.now())
+        flash("Purchased {} {} stock for ${}".format(nrOfShares, buyStock["name"], sharesToBuyTotal))
 
         # Upon completion, redirect the user to the home page
-        return redirect("index.html")
+        return redirect("/")
 
     return render_template("buy.html")
 
@@ -144,7 +148,7 @@ def history():
     # Query db for list of user transactions
     history = db.execute("SELECT symbol, share, price, time FROM shares WHERE user_id = ? ORDER BY time DESC", session["user_id"])
 
-    return render_template("history.html", history)
+    return render_template("history.html", history=history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -198,21 +202,22 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+
     if request.method == "POST":
 
         # Require that a user inputs a stocks symbol
         symbol = request.form.get("symbol")
 
         if not symbol:
-            return apology("must provide stock symbol", 403)
+            return apology("must provide stock symbol")
 
         # Require that the symbol provided is valid
         quoteResponse = lookup(symbol)
 
-        if not quoteResponse:
-            return apology("must provide a valid stock symbol", 403)
+        if quoteResponse == None:
+            return apology("must provide a valid stock symbol")
 
-        return render_template("quoted.html", name=quoteResponse['name'], symbol=quoteResponse['symbol'], price=quoteResponse['price'])
+        return render_template("quoted.html", name=quoteResponse["name"], symbol=quoteResponse["symbol"], price=quoteResponse["price"])
 
     return render_template("quote.html")
 
@@ -225,46 +230,50 @@ def register():
         # Require that a user inputs a username
         username = request.form.get("username")
 
-        # Render an apology if the user username input is blank
-        if not username:
-            return apology("must provide a username", 403)
-
-        nameInDb = db.execute("SELECT * FROM users WHERE username = ?", username)
-
-        # Render an apology if the user username input already exists
-        if nameInDb:
-            return apology("that username is already taken", 403)
-
         # Require that a user input a password
         password = request.form.get("password")
 
+        # Require that a user input a password again
+        confirmation = request.form.get("confirmation")
+
+        # Render an apology if the user username input is blank
+        if not username:
+            return apology("must provide a username")
+
         # Render an apology if the user password input is blank
         if not password:
-            return apology("must provide a password", 403)
-
-        # ...and then that same password again
-        confirmation = request.form.get("confirmation")
+            return apology("must provide a password")
 
         # Render an apology if the user password confirmation input is blank
         if not confirmation:
-            return apology("must provide a matching password in both boxes", 403)
+            return apology("must provide a matching password in both boxes")
+
+        if password.len() < 8:
+            return apology("must provide a password with minimum 8 characters")
+
+        # TO INSERT PASSWORD VALIDATION FOR SPECIAL CHARACTERS HERE ---------------------
+
 
         # Render an apology if the user password and confirmation input do not match
         if password != confirmation:
-            return apology("passwords do not match", 403)
+            return apology("passwords do not match")
 
         # Hash the users password with generate_password_hash
         passwordHash = generate_password_hash(password)
 
-        # Add the new user into users, storing a hash of the users password, not the password itself
-        db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, passwordHash)
+        # Add the New user into users, storing a hash of the users password, not the password itself
+        try:
+            userId = db.execute("INSERT INTO users (username, hash) VALUES(?, ?)", username, passwordHash)
+        except:
+            # Render an apology if the user username input already exists
+            return apology("that username is already taken")
 
-        userId = db.execute("SELECT id FROM users WHERE username = ?", username)
+        # Log user in
+        session["user_id"] = userId
 
-        # log user in
-        session["user_id"] = userId[0]["id"]
+        flash("Registered!")
 
-        return render_template("index.html")
+        return redirect("/")
 
     return render_template("register.html")
 
@@ -280,28 +289,32 @@ def sell():
         sellSymbol = request.form.get("symbol")
         sellStock = lookup(sellSymbol)
 
+        sellUserShares = int(request.form.get("shares"))
+
         # Render an apology if user didnt select any stock from the list
         if not sellSymbol or sellSymbol == "Symbol":
-            return apology("must choose a stock owned from the dropdown list", 403)
+            return apology("must choose a stock owned")
 
-        # retrieve user info of shares of the stock provided
-        userShares = db.execute("SELECT SUM(share) FROM shares WHERE id = ? AND symbol = ? GROUP BY share", session["user_id"], sellSymbol)
+        if sellStock == None:
+            return apology("must choose a valid stock owned")
 
-        userSharesNr = int(userShares[0]["share"])
+        # Fetch user info of shares of the stock provided
+        userShares = db.execute(
+            "SELECT SUM(share) AS shares FROM shares WHERE user_id = ? AND symbol = ? GROUP BY symbol", session["user_id"], sellSymbol)
+
+        userSharesNr = int(userShares[0]["shares"])
 
         # Render an apology if user does not have any shares of the provided stock
         if userSharesNr < 1:
-            return apology("you do not own any shares of that stock", 403)
-
-        sellUserShares = int(request.form.get("shares"))
+            return apology("you do not own any shares of that stock")
 
         # Render an apology if the input is not a positive integer
-        if sellUserShares < 1:
-            return apology("must provide a positive number", 403)
+        if sellUserShares < 0:
+            return apology("must provide a positive number")
 
         # Render an apology if user does not own that many shares
         if sellUserShares > userSharesNr:
-            return apology("must provide a number less than or equal to the shares that you own", 403)
+            return apology("must provide a number less than or equal to the shares that you own")
 
         # Fetch latest stock price
         currentStockPrice = sellStock["price"]
@@ -312,20 +325,23 @@ def sell():
 
         # Calculate amount of cash for sold shares
         profit = currentStockPrice * sellUserShares
-
+        userCashNew = userCash + profit
         soldUserShares = sellUserShares - 2 * sellUserShares
 
         # Substract shares from user portfolio (add entry with negative shares amount to shares table)
+        time = datetime.datetime.now()
         db.execute("""INSERT INTO shares
                       (user_id, symbol, share, price, time)
-                      VALUES (?, ?, ?, ?, ?)""", session["user_id"], sellSymbol, soldUserShares, currentStockPrice, datetime.datetime.now())
+                      VALUES (?, ?, ?, ?, ?)""", session["user_id"], sellSymbol, soldUserShares, currentStockPrice, time)
 
         # Add cash from sale to user account
-        db.execute("UPDATE users SET cash = ? WHERE user_id = ?", userCash + profit, session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", round(userCashNew, 2), session["user_id"])
 
-        return redirect("index.html")
+        flash("Stock sold!")
+
+        return redirect("/")
 
     # Retrieve a [list] of user shares of [dicts] stocks
-    userStocks = db.execute("SELECT symbol, SUM(share) FROM shares WHERE user_id = ? GROUP BY symbol", session["user_id"])
+    userStocks = db.execute("SELECT symbol FROM shares WHERE user_id = ? GROUP BY symbol HAVING SUM(share) > 0", session["user_id"])
 
-    return render_template("sell.html", userStocks)
+    return render_template("sell.html", userStocks=userStocks)
