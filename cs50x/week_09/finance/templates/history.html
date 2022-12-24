@@ -5,22 +5,22 @@
 {% endblock %}
 
 {% block main %}
-    <table>
+    <table class="table">
         <thead>
             <tr>
-                <th>Symbol</th>
-                <th>Shares</th>
-                <th>Price</th>
-                <th>Transacted</th>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Transacted</th>
             </tr>
         </thead>
         <tbody>
             {% for transaction in history %}
             <tr>
-                <td>{{ transaction.symbol }}</td>
-                <td>{{ transaction.shares }}</td>
-                <td>{{ transaction.price | usd }}</td>
-                <td>{{ transaction.time }}</td>
+                <td class="text-start">{{ transaction.symbol }}</td>
+                <td class="text-end">{{ transaction.shares }}</td>
+                <td class="text-end">{{ transaction.price | usd }}</td>
+                <td class="text-end">{{ transaction.time }}</td>
             </tr>
             {% endfor %}
         </tbody>
