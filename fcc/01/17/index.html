@@ -6,61 +6,71 @@
     <title>Product Landing Page</title>
     <link rel="stylesheet" href="./styles.css">
   </head>
+
   <body>
+
     <div id="wrapper">
+
       <header id="header">
-        <div>
+        <div class="logo">
           <img id="header-img" src="https://cdn-icons-png.flaticon.com/512/1051/1051372.png?w=1800&t=st=1669226289~exp=1669226889~hmac=21e2fa76a2d32a00b6172cc8d331f46711f6f924bbcb1194af5d3f40dfba5024" alt="logo" width="60" />
         </div>
+
         <nav id="nav-bar">
           <ul>
-            <li><a class="nav-link" href="#section1">Section 1</a></li>
-            <li><a class="nav-link" href="#section2">Section 2</a></li>
-            <li><a class="nav-link" href="#section3">Section 3</a></li>
+            <li><a class="nav-link" href="#qualities">Qualities</a></li>
+            <li><a class="nav-link" href="#section_video">How It Works</a></li>
+            <li><a class="nav-link" href="#order">Pricing & Order</a></li>
           </ul>
         </nav>
       </header>
-      <div></div>
-      <section>
-        <h2>Headphones</h2>
+
+      <div class="container"></div>
+
+      <section id="newsletter">
+        <h2>Headphone News and Tips</h2>
         <form id="form" action="https://www.freecodecamp.com/email-submit">
           <input name="email" id="email" type="email" placeholder="Enter your email" required />
           <input name="submit" id="submit" type="submit" class="button" />
         </form>
       </section>
-      <div id="sections">
+
+      <div id="container">
+
         <section id="qualities">
-          <div>
+          <div class="grid">
             <div>
-              <i>icon1</i>
+              <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1051/1051372.png?w=1800&t=st=1669226289~exp=1669226889~hmac=21e2fa76a2d32a00b6172cc8d331f46711f6f924bbcb1194af5d3f40dfba5024" alt="logo" width="30" />
             </div>
-            <div>
+            <div class="description">
               <h4>Great sound</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id sagittis nibh. Etiam hendrerit blandit lacus, at vulputate nulla ultricies non. Aenean et odio porta, convallis ante quis, imperdiet dolor. Donec posuere ipsum ac diam.</p>
             </div>
           </div>
-          <div>
+          <div class="grid">
             <div>
-              <i>icon2</i>
+              <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1051/1051372.png?w=1800&t=st=1669226289~exp=1669226889~hmac=21e2fa76a2d32a00b6172cc8d331f46711f6f924bbcb1194af5d3f40dfba5024" alt="logo" width="30" />
             </div>
-            <div>
+            <div class="description">
               <h4>Long guarantee</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus imperdiet placerat tortor, at eleifend augue auctor sed. Vivamus ex neque, dapibus ut tincidunt eget, ultrices sed nibh. Sed eu luctus risus. Sed auctor.</p>
             </div>
           </div>
-          <div>
+          <div class="grid">
             <div>
-              <i>icon3</i>
+              <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1051/1051372.png?w=1800&t=st=1669226289~exp=1669226889~hmac=21e2fa76a2d32a00b6172cc8d331f46711f6f924bbcb1194af5d3f40dfba5024" alt="logo" width="30" />
             </div>
-            <div>
+            <div class="description">
               <h4>Durable build</h4>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce leo metus, pellentesque in tellus eu, porttitor lobortis diam. Suspendisse iaculis orci vitae varius rutrum. Nullam vitae convallis dolor. Phasellus sed dolor urna. Pellentesque id nisl sapien. In.</p>
             </div>
           </div>
         </section>
+
         <section id="section_video">
           <iframe id="video" width="534" height="300" src="https://www.youtube.com/embed/BKhS7X8rs74" title="Headphone Driver Types as Fast As Possible" frameborder="0" allowfullscreen></iframe>
         </section>
+
         <section id="order">
           <div class="item" id="item1">
             <div>Dynamic Headphone</div>
@@ -93,6 +103,7 @@
             <button class="button">ORDER</button>
           </div>
         </section>
+
         <footer>
           <ul>
             <li><a>Privacy</a></li>
@@ -101,7 +112,9 @@
           </ul>
           <span>Copyright 2022, FreeCodeCampCourses</span>
         </footer>
+
       </div>
     </div>
+
   </body>
 </html>
