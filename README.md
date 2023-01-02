@@ -16,8 +16,8 @@
    - [x] week 06 - Python
    - [x] week 07 - SQL
    - [x] week 08 - Html, CSS, JavaScript
-   - [ ] week 09 - Flask < 💻
-   - [ ] week 10 - Final Project
+   - [x] week 09 - Flask
+   - [ ] week 10 - Final Project < 💻
 </details>
    
 ---
